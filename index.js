@@ -1,16 +1,16 @@
 //index.js
 const express = require('express');
 const app = express();
-const PORT = 4000;
+const PORT = 2000;
 
-const http = require('http').Server(app);
+const https = require('https').Server(app);
 const cors = require('cors');
 
 app.use(cors());
 
-const socketIO = require('socket.io')(http, {
+const socketIO = require('socket.io')(https, {
   cors: {
-    origin: "http://localhost:3000"
+    origin: "https://chatapp.sebasescobar.com"
   }
 });
 
@@ -53,6 +53,6 @@ app.get('/api', (req, res) => {
   });
 });
 
-http.listen(PORT, () => {
+https.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
