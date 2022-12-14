@@ -3,14 +3,14 @@ const express = require('express');
 const app = express();
 const PORT = 2000;
 
-const https = require('https').Server(app);
+const http = require('http').Server(app);
 const cors = require('cors');
 
 app.use(cors());
 
-const socketIO = require('socket.io')(https, {
+const socketIO = require('socket.io')(http, {
   cors: {
-    origin: "https://chatapp.sebasescobar.com"
+    origin: "https://sebasescobar.com"
   }
 });
 
@@ -53,6 +53,6 @@ app.get('/api', (req, res) => {
   });
 });
 
-https.listen(PORT, () => {
+http.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
