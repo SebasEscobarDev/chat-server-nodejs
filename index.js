@@ -10,7 +10,7 @@ app.use(cors());
 
 const socketIO = require('socket.io')(http, {
   cors: {
-    origin: "https://sebasescobar.com"
+    origin: "https://chatapp.sebasescobar.com"
   }
 });
 
